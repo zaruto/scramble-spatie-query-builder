@@ -1,6 +1,6 @@
 <?php
 
-namespace Exonn\ScrambleSpatieQueryBuilder;
+namespace Zaruto\ScrambleSpatieQueryBuilder;
 
 use Dedoc\Scramble\Support\Generator\Operation;
 use Dedoc\Scramble\Support\Generator\Parameter;

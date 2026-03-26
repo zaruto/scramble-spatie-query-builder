@@ -7,7 +7,7 @@ use Dedoc\Scramble\Support\OperationExtensions\ErrorResponsesExtension;
 use Dedoc\Scramble\Support\OperationExtensions\RequestBodyExtension;
 use Dedoc\Scramble\Support\OperationExtensions\RequestEssentialsExtension;
 use Dedoc\Scramble\Support\OperationExtensions\ResponseExtension;
-use Exonn\ScrambleSpatieQueryBuilder\Tests\TestCase;
+use Zaruto\ScrambleSpatieQueryBuilder\Tests\TestCase;
 use Illuminate\Routing\Route;
 
 uses(TestCase::class)->in(__DIR__);

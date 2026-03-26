@@ -1,6 +1,6 @@
 <?php
 
-namespace Exonn\ScrambleSpatieQueryBuilder;
+namespace Zaruto\ScrambleSpatieQueryBuilder;
 
 enum FilterModeEnum: string
 {

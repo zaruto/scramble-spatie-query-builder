@@ -1,6 +1,6 @@
 <?php
 
-namespace Exonn\ScrambleSpatieQueryBuilder;
+namespace Zaruto\ScrambleSpatieQueryBuilder;
 
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\AllowedFilter as SpatieAllowedFilter;

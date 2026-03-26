@@ -6,13 +6,13 @@ This is the Scramble extension, which detects the usage of the Spatie query buil
 
 ## Installation
 
-Install from Packagist:
+After you publish the package on Packagist:
 
 ```
-composer require exonn-gmbh/scramble-spatie-query-builder
+composer require zaruto/scramble-spatie-query-builder
 ```
 
-Install from your fork/repo:
+Until the package is published, install it directly from your GitHub repository:
 
 ```json
 {
@@ -23,7 +23,7 @@ Install from your fork/repo:
         }
     ],
     "require": {
-        "exonn-gmbh/scramble-spatie-query-builder": "dev-main"
+        "zaruto/scramble-spatie-query-builder": "dev-main"
     }
 }
 ```
@@ -31,7 +31,7 @@ Install from your fork/repo:
 Then run:
 
 ```bash
-composer update exonn-gmbh/scramble-spatie-query-builder
+composer update zaruto/scramble-spatie-query-builder
 ```
 
 Supported baseline:
@@ -46,11 +46,11 @@ Supported baseline:
 ```php
 'extensions' => [
     // ...
-    \Exonn\ScrambleSpatieQueryBuilder\AllowedFieldsExtension::class,
-    \Exonn\ScrambleSpatieQueryBuilder\AllowedSortsExtension::class,
-    \Exonn\ScrambleSpatieQueryBuilder\AllowedFiltersExtension::class,
-    \Exonn\ScrambleSpatieQueryBuilder\AllowedIncludesExtension::class,
-//    \Exonn\ScrambleSpatieQueryBuilder\AllowedFilterModesExtension::class
+    \Zaruto\ScrambleSpatieQueryBuilder\AllowedFieldsExtension::class,
+    \Zaruto\ScrambleSpatieQueryBuilder\AllowedSortsExtension::class,
+    \Zaruto\ScrambleSpatieQueryBuilder\AllowedFiltersExtension::class,
+    \Zaruto\ScrambleSpatieQueryBuilder\AllowedIncludesExtension::class,
+//    \Zaruto\ScrambleSpatieQueryBuilder\AllowedFilterModesExtension::class
 ],
 ```
 2. Use Spatie Query Builder in your controller or route action as usual.
@@ -116,4 +116,14 @@ public function boot(): void
 }
 ```
 2. Customize for your needs
+
+## Publishing
+To publish this as your own package:
+
+1. Create a public GitHub repository named `scramble-spatie-query-builder` under your `zaruto` account.
+2. Push this code to `https://github.com/zaruto/scramble-spatie-query-builder`.
+3. Sign in to [Packagist](https://packagist.org/) with your GitHub account.
+4. Submit the repository URL to Packagist.
+5. After Packagist indexes the repository, install it with `composer require zaruto/scramble-spatie-query-builder`.
+6. Add the Packagist service hook in GitHub so new tags and releases are picked up automatically.
 

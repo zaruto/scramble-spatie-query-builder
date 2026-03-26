@@ -1,6 +1,6 @@
 <?php
 
-use Exonn\ScrambleSpatieQueryBuilder\AllowedFiltersExtension;
+use Zaruto\ScrambleSpatieQueryBuilder\AllowedFiltersExtension;
 use Illuminate\Support\Facades\Route;
 
 test('test AllowedFiltersExtensions', function () {

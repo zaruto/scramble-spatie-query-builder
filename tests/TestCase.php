@@ -1,6 +1,6 @@
 <?php
 
-namespace Exonn\ScrambleSpatieQueryBuilder\Tests;
+namespace Zaruto\ScrambleSpatieQueryBuilder\Tests;
 
 use Dedoc\Scramble\ScrambleServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;

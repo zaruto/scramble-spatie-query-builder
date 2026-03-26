@@ -1,5 +1,5 @@
 {
-    "name": "exonn-gmbh/scramble-spatie-query-builder",
+    "name": "zaruto/scramble-spatie-query-builder",
     "description": "This is the Scramble extension, which detects the usage of the Spatie query builder and adds applicable query parameters to the openapi definitions",
     "keywords": [
         "extension",
@@ -11,18 +11,17 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Exonn\\ScrambleSpatieQueryBuilder\\": "src/"
+            "Zaruto\\ScrambleSpatieQueryBuilder\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Exonn\\ScrambleSpatieQueryBuilder\\Tests\\": "tests"
+            "Zaruto\\ScrambleSpatieQueryBuilder\\Tests\\": "tests"
         }
     },
     "authors": [
         {
-            "name": "Volodymyr Rudomanenko",
-            "email": "rudomanenkovladimir@gmail.com"
+            "name": "zaruto"
         }
     ],
     "require": {
