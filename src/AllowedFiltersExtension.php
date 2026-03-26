@@ -16,8 +16,6 @@ class AllowedFiltersExtension extends OperationExtension
 
     const MethodName = 'allowedFilters';
 
-    public array $examples = ['[name]=john', '[email]=gmail'];
-
     public string $configKey = 'query-builder.parameters.filter';
 
     public function handle(Operation $operation, RouteInfo $routeInfo)
@@ -39,11 +37,19 @@ class AllowedFiltersExtension extends OperationExtension
             $objectType->addProperty($value, new StringType);
         }
         $parameter->setSchema(Schema::fromType($objectType))
-            ->example($this->examples);
+            ->example($this->makeExamples($values));
 
         $halt = $this->runHooks($operation, $parameter);
         if (! $halt) {
             $operation->addParameters([$parameter]);
         }
+    }
+
+    protected function makeExamples(array $values): array
+    {
+        return array_map(
+            fn (string $value) => "[{$value}]={$value}",
+            $values
+        );
     }
 }

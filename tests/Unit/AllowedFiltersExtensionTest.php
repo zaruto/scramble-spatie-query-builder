@@ -31,7 +31,7 @@ test('test AllowedFiltersExtensions', function () {
                 ],
             ],
         ],
-        'example' => ['[name]=john', '[email]=gmail'],
+        'example' => ['[foo]=foo', '[bar]=bar'],
     ]);
 
 });
