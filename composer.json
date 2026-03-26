@@ -1,0 +1,49 @@
+{
+    "name": "exonn-gmbh/scramble-spatie-query-builder",
+    "description": "This is the Scramble extension, which detects the usage of the Spatie query builder and adds applicable query parameters to the openapi definitions",
+    "keywords": [
+        "extension",
+        "spatie",
+        "query-builder",
+        "scramble",
+        "openapi"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Exonn\\ScrambleSpatieQueryBuilder\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Exonn\\ScrambleSpatieQueryBuilder\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Volodymyr Rudomanenko",
+            "email": "rudomanenkovladimir@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "dedoc/scramble": "^0.13.16",
+        "spatie/laravel-query-builder": "^7.0.1"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.29",
+        "pestphp/pest": "^4.4.1",
+        "nunomaduro/collision": "^8.9.1",
+        "orchestra/testbench": "^10.11",
+        "pestphp/pest-plugin-laravel": "^4.1"
+    },
+    "scripts": {
+        "format": "vendor/bin/pint",
+        "test": "vendor/bin/pest"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
