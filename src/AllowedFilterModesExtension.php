@@ -16,8 +16,6 @@ class AllowedFilterModesExtension extends OperationExtension
 
     const MethodName = 'allowedFilters';
 
-    public array $examples = ['[name]=starts_with', '[email]=exact'];
-
     public function handle(Operation $operation, RouteInfo $routeInfo)
     {
         $helper = new InferHelper;
@@ -46,11 +44,27 @@ class AllowedFilterModesExtension extends OperationExtension
             $objectType->addProperty($value, $filterMode);
         }
         $parameter->setSchema(Schema::fromType($objectType))
-            ->example($this->examples);
+            ->example($this->makeExamples($values));
 
         $halt = $this->runHooks($operation, $parameter);
         if (! $halt) {
             $operation->addParameters([$parameter]);
         }
+    }
+
+    protected function makeExamples(array $values): array
+    {
+        $modes = [
+            'starts_with',
+            'ends_with',
+            'exact',
+            'partial',
+        ];
+
+        return array_map(
+            fn (string $value, int $index) => "[{$value}]={$modes[$index % count($modes)]}",
+            $values,
+            array_keys($values)
+        );
     }
 }

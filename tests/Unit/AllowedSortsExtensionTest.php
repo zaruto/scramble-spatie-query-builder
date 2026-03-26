@@ -24,7 +24,7 @@ test('test AllowedSortsExtensions', function () {
         'schema' => [
             'type' => 'string',
         ],
-        'example' => ['title', '-title', 'title,-id'],
+        'example' => ['foo', '-foo', 'foo,-bar'],
     ]);
 
 });

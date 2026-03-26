@@ -51,7 +51,7 @@ test('test AllowedFilterModesExtensions', function () {
             ],
 
         ],
-        'example' => ['[name]=starts_with', '[email]=exact'],
+        'example' => ['[foo]=starts_with', '[bar]=ends_with'],
     ]);
 
 });

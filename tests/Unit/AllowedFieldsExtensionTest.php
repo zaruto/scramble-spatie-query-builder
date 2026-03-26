@@ -1,20 +1,20 @@
 <?php
 
-use Zaruto\ScrambleSpatieQueryBuilder\AllowedIncludesExtension;
 use Illuminate\Support\Facades\Route;
+use Zaruto\ScrambleSpatieQueryBuilder\AllowedFieldsExtension;
 
-test('test AllowedIncludesExtensions', function () {
+test('test AllowedFieldsExtensions', function () {
 
-    $queryParam = 'include';
+    $queryParam = 'fields';
 
-    config()->set('query-builder.parameters.include', $queryParam);
+    config()->set('query-builder.parameters.fields', $queryParam);
 
     $result = generateForRoute(function () {
         return Route::get('test', [
-            AllowedIncludesExtensionController::class, 'a',
+            AllowedFieldsExtensionController::class, 'a',
         ]);
     }, [
-        AllowedIncludesExtension::class,
+        AllowedFieldsExtension::class,
     ]);
 
     expect($result['paths']['/test']['get']['parameters'][0])->toBe([
@@ -42,12 +42,12 @@ test('test AllowedIncludesExtensions', function () {
 
 });
 
-class AllowedIncludesExtensionController extends \Illuminate\Routing\Controller
+class AllowedFieldsExtensionController extends \Illuminate\Routing\Controller
 {
     public function a(): Illuminate\Http\Resources\Json\JsonResource
     {
         \Spatie\QueryBuilder\QueryBuilder::for(null)
-            ->allowedIncludes(['foo', 'bar']);
+            ->allowedFields(['foo', 'bar']);
 
         return $this->unknown_fn();
     }

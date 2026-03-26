@@ -17,8 +17,6 @@ class AllowedFieldsExtension extends OperationExtension
 
     const MethodName = 'allowedFields';
 
-    public array $examples = ['id', 'title', 'posts.id'];
-
     public string $configKey = 'query-builder.parameters.fields';
 
     public function handle(Operation $operation, RouteInfo $routeInfo)
@@ -39,7 +37,7 @@ class AllowedFieldsExtension extends OperationExtension
         $parameter->setSchema(Schema::fromType((new AnyOf)->setItems([
             $arrayType,
             new StringType,
-        ])))->example($this->examples);
+        ])))->example($values);
 
         $halt = $this->runHooks($operation, $parameter);
         if (! $halt) {

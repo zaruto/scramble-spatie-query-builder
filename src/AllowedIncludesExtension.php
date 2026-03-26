@@ -17,8 +17,6 @@ class AllowedIncludesExtension extends OperationExtension
 
     const MethodName = 'allowedIncludes';
 
-    public array $examples = ['posts', 'posts.comments', 'books'];
-
     public string $configKey = 'query-builder.parameters.include';
 
     public function handle(Operation $operation, RouteInfo $routeInfo)
@@ -40,7 +38,7 @@ class AllowedIncludesExtension extends OperationExtension
         $parameter->setSchema(Schema::fromType((new AnyOf)->setItems([
             $arrayType,
             new StringType,
-        ])))->example($this->examples);
+        ])))->example($values);
 
         $halt = $this->runHooks($operation, $parameter);
         if (! $halt) {

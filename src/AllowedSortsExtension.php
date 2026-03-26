@@ -17,8 +17,6 @@ class AllowedSortsExtension extends OperationExtension
 
     const MethodName = 'allowedSorts';
 
-    public array $examples = ['title', '-title', 'title,-id'];
-
     public string $configKey = 'query-builder.parameters.sort';
 
     public function handle(Operation $operation, RouteInfo $routeInfo)
@@ -46,11 +44,29 @@ class AllowedSortsExtension extends OperationExtension
 
         $parameter->setSchema(Schema::fromType(new StringType))
             ->description('Sort the results by the given fields. Available fields: '.implode(', ', array_map(fn ($value) => "`$value`", $arrayType->items->enum)).'. You can sort by multiple options by separating them with a comma. To sort in descending order, use - sign in front of the sort, for example: `-name`.')
-            ->example($this->examples);
+            ->example($this->makeExamples($values));
 
         $halt = $this->runHooks($operation, $parameter);
         if (! $halt) {
             $operation->addParameters([$parameter]);
         }
+    }
+
+    protected function makeExamples(array $values): array
+    {
+        if (count($values) === 0) {
+            return [];
+        }
+
+        $examples = [
+            $values[0],
+            '-'.$values[0],
+        ];
+
+        if (count($values) > 1) {
+            $examples[] = implode(',', [$values[0], '-'.$values[1]]);
+        }
+
+        return $examples;
     }
 }
